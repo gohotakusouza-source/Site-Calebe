@@ -3,73 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calebe Gabriel | Agência Digital Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Calebe Gabriel | Agência Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#0b1120;color:#f1f5f9;overflow-x:hidden}
 section{padding:100px 20px;max-width:1200px;margin:auto;position:relative;z-index:2}
 h1,h2,h3{margin-bottom:20px}
-p{line-height:1.6;color:#cbd5e1}
+p{color:#cbd5e1;line-height:1.6}
 canvas{position:fixed;top:0;left:0;z-index:0}
-
-.fade-up{opacity:0;transform:translateY(40px);transition:all 1s ease}
-.fade-up.show{opacity:1;transform:translateY(0)}
-
-.btn{
-display:inline-block;
-padding:14px 28px;
-background:#22c55e;
-color:#fff;
-text-decoration:none;
-border-radius:8px;
-font-weight:600;
-transition:.3s;
-cursor:pointer
-}
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(34,197,94,.4)
-}
-.btn:active{transform:scale(.95)}
 
 header{text-align:center;padding:160px 20px}
 header h1{font-size:3rem;font-weight:800}
 .highlight{color:#22c55e}
 
+.btn{
+display:inline-block;
+padding:14px 30px;
+background:#22c55e;
+color:#fff;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+transition:.3s;
+text-decoration:none;
+border:none
+}
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 15px 35px rgba(34,197,94,.4)
+}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
-margin-top:40px
+margin-top:50px
 }
 
 .card{
-background:rgba(30,41,59,.7);
+background:rgba(30,41,59,.6);
 backdrop-filter:blur(10px);
 padding:30px;
 border-radius:20px;
-transition:.4s;
-border:1px solid rgba(255,255,255,.05)
+cursor:pointer;
+transition:.5s;
+border:1px solid rgba(255,255,255,.05);
+transform:translateY(40px);
+opacity:0
+}
+.card.show{
+transform:translateY(0);
+opacity:1
 }
 .card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 15px 40px rgba(34,197,94,.3)
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 20px 50px rgba(34,197,94,.3)
 }
 
-.click-counter-box{text-align:center}
-.click-number{
-font-size:3rem;
-font-weight:800;
-color:#22c55e
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+z-index:10
 }
 
-footer{
-text-align:center;
+.modal-content{
+background:#111827;
 padding:40px;
-background:#020617;
-color:#94a3b8
+border-radius:20px;
+width:90%;
+max-width:500px;
+text-align:center;
+animation:scaleUp .4s
+}
+
+@keyframes scaleUp{
+from{transform:scale(.8);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:30px;
+cursor:pointer
+}
+
+.input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:none;
+outline:none
+}
+
+.pix-box{
+background:#0f172a;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+font-size:14px;
+word-break:break-all
+}
+
+.success{
+color:#22c55e;
+display:none;
+margin-top:10px;
+font-weight:600
+}
+
+.footer-whats{
+text-align:center;
+padding:60px 20px;
+background:#020617
+}
+.footer-whats a{
+color:#22c55e;
+font-weight:700;
+text-decoration:none;
+font-size:18px
 }
 </style>
 </head>
@@ -77,57 +142,80 @@ color:#94a3b8
 
 <canvas id="particles"></canvas>
 
-<header class="fade-up">
-<h1>Empresas de <span class="highlight">Promissão</span> estão perdendo clientes todos os dias.</h1>
-<p>Eu crio páginas que transformam visitas em mensagens no WhatsApp.</p>
-<a onclick="registrarClique()" href="https://wa.me/5518991599851" class="btn">Falar no WhatsApp</a>
+<header>
+<h1>Transforme sua empresa em <span class="highlight">Autoridade Digital</span></h1>
+<p>Sites estratégicos que geram clientes todos os dias.</p>
+<br>
+<a href="https://wa.me/5518991599851" class="btn">
+Falar Agora no WhatsApp
+</a>
 </header>
 
 <section>
-<h2 class="fade-up" style="text-align:center">Interesse Gerado</h2>
-<div class="click-counter-box fade-up">
-<div class="click-number" id="contadorCliques">0</div>
-<p>Total de cliques nos botões</p>
-</div>
-</section>
-
-<section>
-<h2 class="fade-up" style="text-align:center">O Que Eu Faço</h2>
+<h2 style="text-align:center">Pacotes</h2>
 <div class="grid">
 
-<div class="card fade-up">
-<h3>Página de Alta Conversão</h3>
-<p>Design moderno e estratégico para gerar contatos reais.</p>
-<a onclick="registrarClique()" href="https://wa.me/5518991599851" class="btn">Quero Isso</a>
+<div class="card" onclick="abrirCheckout('Start','197')">
+<h3>Pacote Start</h3>
+<p>✔ Página profissional<br>✔ Botão WhatsApp<br>✔ Entrega rápida</p>
 </div>
 
-<div class="card fade-up">
-<h3>Funil Simples</h3>
-<p>Estrutura pronta para transformar visitantes em clientes.</p>
-<a onclick="registrarClique()" href="https://wa.me/5518991599851" class="btn">Começar</a>
+<div class="card" onclick="abrirCheckout('Profissional','397')">
+<h3>Pacote Profissional</h3>
+<p>✔ Página premium<br>✔ Estratégia local<br>✔ Ajustes personalizados</p>
 </div>
 
-<div class="card fade-up">
-<h3>Posicionamento Local</h3>
-<p>Estratégia focada para dominar sua cidade.</p>
-<a onclick="registrarClique()" href="https://wa.me/5518991599851" class="btn">Falar Agora</a>
+<div class="card" onclick="abrirCheckout('Completo','697')">
+<h3>Pacote Completo</h3>
+<p>✔ Página avançada<br>✔ Funil estratégico<br>✔ Suporte prioritário</p>
 </div>
 
 </div>
 </section>
 
-<section style="text-align:center" class="fade-up">
-<h2>Pronto para subir de nível?</h2>
-<a onclick="registrarClique()" href="https://wa.me/5518991599851" class="btn">Falar no WhatsApp</a>
-</section>
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="fecharModal()">&times;</span>
 
-<footer>
-© 2026 - Calebe Gabriel | Agência Digital Premium
-</footer>
+<h2 id="pacoteNome"></h2>
+<h3 style="color:#22c55e">R$ <span id="pacotePreco"></span></h3>
+
+<input class="input" placeholder="Seu nome">
+<input class="input" placeholder="Seu WhatsApp">
+
+<h3>Pagamento via PIX</h3>
+
+<div class="pix-box" id="pixKey">
+d8bf7a05-2cbe-4355-a055-79e77ac43b36
+</div>
+
+<button class="btn" onclick="copiarPix()">Copiar Chave PIX</button>
+
+<div class="success" id="copiadoMsg">
+✅ Chave copiada com sucesso!
+</div>
+
+<br><br>
+
+<a href="https://wa.me/5518991599851" class="btn">
+Confirmar Pagamento
+</a>
+
+</div>
+</div>
+
+<div class="footer-whats">
+<h3>Dúvidas?</h3>
+<p>Fale comigo direto no WhatsApp 👇</p>
+<br>
+<a href="https://wa.me/5518991599851">
+WhatsApp: (18) 99159-9851
+</a>
+</div>
 
 <script>
-// Fade Animation
-const elements=document.querySelectorAll('.fade-up');
+// animação cards
+const cards=document.querySelectorAll('.card');
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
@@ -135,35 +223,35 @@ entry.target.classList.add('show')
 }
 })
 });
-elements.forEach(el=>observer.observe(el));
+cards.forEach(card=>observer.observe(card));
 
-// Contador de Cliques
-function atualizarContador(){
-let total=localStorage.getItem('totalCliques');
-if(!total){
-total=0;
-localStorage.setItem('totalCliques',0);
+// modal
+function abrirCheckout(nome,preco){
+document.getElementById("pacoteNome").innerText=nome;
+document.getElementById("pacotePreco").innerText=preco;
+document.getElementById("modal").style.display="flex";
 }
-document.getElementById('contadorCliques').innerText=total;
-}
-
-function registrarClique(){
-let total=localStorage.getItem('totalCliques');
-if(!total){total=0;}
-total++;
-localStorage.setItem('totalCliques',total);
+function fecharModal(){
+document.getElementById("modal").style.display="none";
 }
 
-atualizarContador();
+// copiar pix
+function copiarPix(){
+let pix=document.getElementById("pixKey").innerText;
+navigator.clipboard.writeText(pix);
+document.getElementById("copiadoMsg").style.display="block";
+setTimeout(()=>{
+document.getElementById("copiadoMsg").style.display="none";
+},2000);
+}
 
-// Partículas
+// partículas
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
-
 let particles=[];
-for(let i=0;i<80;i++){
+for(let i=0;i<100;i++){
 particles.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
@@ -171,7 +259,6 @@ r:Math.random()*2+1,
 d:Math.random()*1
 });
 }
-
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 ctx.fillStyle='rgba(34,197,94,0.5)';
@@ -180,10 +267,9 @@ ctx.beginPath();
 ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
 ctx.fill();
 });
-updateParticles();
+update();
 }
-
-function updateParticles(){
+function update(){
 particles.forEach(p=>{
 p.y+=p.d;
 if(p.y>canvas.height){
@@ -192,7 +278,6 @@ p.x=Math.random()*canvas.width;
 }
 });
 }
-
 setInterval(draw,33);
 </script>
 
