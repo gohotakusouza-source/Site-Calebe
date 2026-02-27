@@ -3,21 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calebe Gabriel | Agência Digital</title>
+<title>Grupo Impulso Local | Crescimento Estratégico</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#0b1120;color:#f1f5f9;overflow-x:hidden}
-section{padding:100px 20px;max-width:1200px;margin:auto;position:relative;z-index:2}
+section{padding:100px 20px;max-width:1200px;margin:auto}
 h1,h2,h3{margin-bottom:20px}
 p{color:#cbd5e1;line-height:1.6}
-canvas{position:fixed;top:0;left:0;z-index:0}
-
-header{text-align:center;padding:160px 20px}
-header h1{font-size:3rem;font-weight:800}
+header{
+text-align:center;
+padding:160px 20px;
+background:linear-gradient(180deg,#0b1120,#0f172a);
+}
+.logo{
+font-size:28px;
+font-weight:800;
+color:#22c55e;
+margin-bottom:20px;
+}
 .highlight{color:#22c55e}
-
 .btn{
 display:inline-block;
 padding:14px 30px;
@@ -26,8 +32,6 @@ color:#fff;
 border-radius:8px;
 font-weight:600;
 cursor:pointer;
-position:relative;
-overflow:hidden;
 transition:.3s;
 text-decoration:none;
 border:none
@@ -36,101 +40,33 @@ border:none
 transform:translateY(-4px);
 box-shadow:0 15px 35px rgba(34,197,94,.4)
 }
-
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 margin-top:50px
 }
-
 .card{
-background:rgba(30,41,59,.6);
-backdrop-filter:blur(10px);
+background:#111827;
 padding:30px;
 border-radius:20px;
-cursor:pointer;
-transition:.5s;
-border:1px solid rgba(255,255,255,.05);
-transform:translateY(40px);
-opacity:0
-}
-.card.show{
-transform:translateY(0);
-opacity:1
+transition:.4s;
+border:1px solid rgba(255,255,255,.05)
 }
 .card:hover{
-transform:translateY(-10px) scale(1.05);
+transform:translateY(-10px);
 box-shadow:0 20px 50px rgba(34,197,94,.3)
 }
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.85);
-justify-content:center;
-align-items:center;
-z-index:10
+.vip{
+border:2px solid #22c55e;
+box-shadow:0 0 40px rgba(34,197,94,.3)
 }
-
-.modal-content{
-background:#111827;
-padding:40px;
-border-radius:20px;
-width:90%;
-max-width:500px;
-text-align:center;
-animation:scaleUp .4s
-}
-
-@keyframes scaleUp{
-from{transform:scale(.8);opacity:0}
-to{transform:scale(1);opacity:1}
-}
-
-.close{
-position:absolute;
-top:20px;
-right:30px;
-font-size:30px;
-cursor:pointer
-}
-
-.input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:8px;
-border:none;
-outline:none
-}
-
-.pix-box{
-background:#0f172a;
-padding:15px;
-border-radius:10px;
-margin-top:10px;
-font-size:14px;
-word-break:break-all
-}
-
-.success{
-color:#22c55e;
-display:none;
-margin-top:10px;
-font-weight:600
-}
-
-.footer-whats{
+.footer{
 text-align:center;
 padding:60px 20px;
 background:#020617
 }
-.footer-whats a{
+.footer a{
 color:#22c55e;
 font-weight:700;
 text-decoration:none;
@@ -140,146 +76,109 @@ font-size:18px
 </head>
 <body>
 
-<canvas id="particles"></canvas>
-
 <header>
-<h1>Transforme sua empresa em <span class="highlight">Autoridade Digital</span></h1>
-<p>Sites estratégicos que geram clientes todos os dias.</p>
+<div class="logo">Grupo Impulso Local</div>
+<h1>Transformando negócios locais em <span class="highlight">líderes da cidade</span></h1>
+<p>Crescimento real para empresas reais. Movimento constante. Clientes todos os dias.</p>
 <br>
 <a href="https://wa.me/5518991599851" class="btn">
-Falar Agora no WhatsApp
+Quero Impulsionar Minha Empresa
 </a>
 </header>
 
 <section>
-<h2 style="text-align:center">Pacotes</h2>
+<h2 style="text-align:center">Nossa Estratégia</h2>
+<p style="text-align:center;max-width:800px;margin:auto">
+Criamos um grupo exclusivo com seus clientes mais ativos para gerar movimento constante na sua empresa.
+Aplicamos estratégias de fidelização, campanhas promocionais, anúncios segmentados e parcerias locais.
+Nosso objetivo é transformar clientes ocasionais em clientes fiéis e garantir fluxo diário no seu negócio.
+Cada empresa recebe uma estratégia personalizada.
+</p>
+</section>
+
+<section>
+<h2 style="text-align:center">Planos Mensais</h2>
 <div class="grid">
 
-<div class="card" onclick="abrirCheckout('Start','197')">
-<h3>Pacote Start</h3>
-<p>✔ Página profissional<br>✔ Botão WhatsApp<br>✔ Entrega rápida</p>
+<div class="card">
+<h3>Plano Essencial</h3>
+<h2 style="color:#22c55e">R$ 297 / mês</h2>
+<p>
+✔ Organização digital<br>
+✔ Grupo estratégico de clientes<br>
+✔ 1 campanha semanal<br>
+✔ Direcionamento básico
+</p>
+<br>
+<a href="https://wa.me/5518991599851" class="btn">Começar</a>
 </div>
 
-<div class="card" onclick="abrirCheckout('Profissional','397')">
-<h3>Pacote Profissional</h3>
-<p>✔ Página premium<br>✔ Estratégia local<br>✔ Ajustes personalizados</p>
+<div class="card">
+<h3>Plano Profissional</h3>
+<h2 style="color:#22c55e">R$ 497 / mês</h2>
+<p>
+✔ Tudo do Essencial<br>
+✔ Estratégia de fidelização<br>
+✔ Planejamento mensal<br>
+✔ 2 campanhas semanais<br>
+✔ Orientação para anúncios
+</p>
+<br>
+<a href="https://wa.me/5518991599851" class="btn">Quero Crescer</a>
 </div>
 
-<div class="card" onclick="abrirCheckout('Completo','697')">
-<h3>Pacote Completo</h3>
-<p>✔ Página avançada<br>✔ Funil estratégico<br>✔ Suporte prioritário</p>
+<div class="card vip">
+<h3>Plano Impulso VIP Elite 👑</h3>
+<h2 style="color:#22c55e">R$ 997 / mês</h2>
+<p>
+✔ Estrutura digital completa<br>
+✔ Página profissional inclusa<br>
+✔ Grupo VIP de clientes ativos<br>
+✔ Estratégia personalizada<br>
+✔ Parcerias locais estratégicas<br>
+✔ Planejamento avançado<br>
+✔ Suporte direto prioritário<br>
+✔ Foco em dominar sua cidade
+</p>
+<br>
+<a href="https://wa.me/5518991599851" class="btn">Quero Dominar Minha Cidade</a>
 </div>
 
 </div>
 </section>
 
-<div class="modal" id="modal">
-<div class="modal-content">
-<span class="close" onclick="fecharModal()">&times;</span>
+<section>
+<h2 style="text-align:center">Estrutura Digital Avulsa</h2>
+<div class="grid">
 
-<h2 id="pacoteNome"></h2>
-<h3 style="color:#22c55e">R$ <span id="pacotePreco"></span></h3>
-
-<input class="input" placeholder="Seu nome">
-<input class="input" placeholder="Seu WhatsApp">
-
-<h3>Pagamento via PIX</h3>
-
-<div class="pix-box" id="pixKey">
-d8bf7a05-2cbe-4355-a055-79e77ac43b36
+<div class="card">
+<h3>Site Profissional</h3>
+<h2 style="color:#22c55e">A partir de R$ 397</h2>
+<p>
+✔ Página estratégica<br>
+✔ Botão WhatsApp<br>
+✔ Estrutura otimizada<br>
+✔ Visual profissional
+</p>
+<br>
+<a href="https://wa.me/5518991599851" class="btn">Solicitar</a>
 </div>
 
-<button class="btn" onclick="copiarPix()">Copiar Chave PIX</button>
-
-<div class="success" id="copiadoMsg">
-✅ Chave copiada com sucesso!
 </div>
+</section>
 
-<br><br>
-
-<a href="https://wa.me/5518991599851" class="btn">
-Confirmar Pagamento
-</a>
-
-</div>
-</div>
-
-<div class="footer-whats">
-<h3>Dúvidas?</h3>
-<p>Fale comigo direto no WhatsApp 👇</p>
+<div class="footer">
+<h3>Fale diretamente com o estrategista</h3>
+<p>Atendimento personalizado via WhatsApp</p>
 <br>
 <a href="https://wa.me/5518991599851">
 WhatsApp: (18) 99159-9851
 </a>
+<br><br>
+<p style="font-size:14px;color:#64748b">
+© 2026 Grupo Impulso Local — Todos os direitos reservados
+</p>
 </div>
-
-<script>
-// animação cards
-const cards=document.querySelectorAll('.card');
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show')
-}
-})
-});
-cards.forEach(card=>observer.observe(card));
-
-// modal
-function abrirCheckout(nome,preco){
-document.getElementById("pacoteNome").innerText=nome;
-document.getElementById("pacotePreco").innerText=preco;
-document.getElementById("modal").style.display="flex";
-}
-function fecharModal(){
-document.getElementById("modal").style.display="none";
-}
-
-// copiar pix
-function copiarPix(){
-let pix=document.getElementById("pixKey").innerText;
-navigator.clipboard.writeText(pix);
-document.getElementById("copiadoMsg").style.display="block";
-setTimeout(()=>{
-document.getElementById("copiadoMsg").style.display="none";
-},2000);
-}
-
-// partículas
-const canvas=document.getElementById('particles');
-const ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-let particles=[];
-for(let i=0;i<100;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2+1,
-d:Math.random()*1
-});
-}
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle='rgba(34,197,94,0.5)';
-particles.forEach(p=>{
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fill();
-});
-update();
-}
-function update(){
-particles.forEach(p=>{
-p.y+=p.d;
-if(p.y>canvas.height){
-p.y=0;
-p.x=Math.random()*canvas.width;
-}
-});
-}
-setInterval(draw,33);
-</script>
 
 </body>
 </html>
