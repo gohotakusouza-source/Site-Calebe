@@ -8,12 +8,34 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0b1120;color:#f1f5f9}
+
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:#fff;
+overflow-x:hidden;
+}
+
 section{padding:100px 20px;max-width:1200px;margin:auto}
-h1,h2,h3{margin-bottom:20px}
+
+h1{font-size:48px}
+h2{font-size:34px;margin-bottom:20px}
 p{color:#cbd5e1;line-height:1.6}
-header{text-align:center;padding:150px 20px;background:#0f172a}
-.logo{font-size:28px;font-weight:800;color:#22c55e;margin-bottom:20px}
+
+header{
+text-align:center;
+padding:180px 20px;
+background:radial-gradient(circle at top,#1e293b,#020617);
+animation:fadeIn 1.5s ease;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+color:#22c55e;
+margin-bottom:15px;
+letter-spacing:1px;
+}
+
 .highlight{color:#22c55e}
 
 .btn{
@@ -21,39 +43,58 @@ display:inline-block;
 padding:14px 30px;
 background:#22c55e;
 color:#fff;
-border-radius:8px;
+border-radius:50px;
 font-weight:600;
 cursor:pointer;
 transition:.3s;
 text-decoration:none;
-border:none
+border:none;
 }
+
 .btn:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 35px rgba(34,197,94,.4)
+transform:translateY(-5px);
+box-shadow:0 20px 40px rgba(34,197,94,.4);
 }
+
+.btn-zap{background:#25D366}
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
-margin-top:50px
+margin-top:50px;
 }
 
 .card{
-background:#111827;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
 padding:30px;
 border-radius:20px;
-border:1px solid rgba(255,255,255,.05);
-transition:.4s
+border:1px solid rgba(255,255,255,0.1);
+transition:.4s;
+opacity:0;
+transform:translateY(40px);
 }
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 20px 50px rgba(34,197,94,.3)
+box-shadow:0 25px 50px rgba(0,0,0,.5);
 }
 
 .vip{
 border:2px solid #22c55e;
+}
+
+.testimonial{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .modal{
@@ -63,7 +104,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.8);
+background:rgba(0,0,0,.85);
 justify-content:center;
 align-items:center;
 z-index:100;
@@ -76,6 +117,7 @@ border-radius:20px;
 width:90%;
 max-width:500px;
 text-align:center;
+animation:fadeIn .4s ease;
 }
 
 .close{
@@ -87,35 +129,31 @@ cursor:pointer;
 color:white;
 }
 
-.input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:8px;
-border:none;
-outline:none
-}
-
 .pix-box{
 background:#0f172a;
 padding:15px;
 border-radius:10px;
 margin-top:15px;
 font-size:14px;
-word-break:break-all
+word-break:break-all;
 }
 
 .success{
 color:#22c55e;
 display:none;
 margin-top:10px;
-font-weight:600
+font-weight:600;
 }
 
 .footer{
 text-align:center;
-padding:60px 20px;
-background:#020617
+padding:70px 20px;
+background:#020617;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
@@ -123,57 +161,69 @@ background:#020617
 
 <header>
 <div class="logo">Grupo Impulso Local</div>
-<h1>Transformando negócios locais em <span class="highlight">líderes da cidade</span></h1>
-<p>Crescimento real. Clientes todos os dias.</p>
+<h1>Transformando negócios locais em <span class="highlight">referência na cidade</span></h1>
+<p>Movimento constante. Clientes ativos. Crescimento real.</p>
+<br>
+<a href="https://wa.me/5518991599851" class="btn btn-zap">
+Falar no WhatsApp
+</a>
 </header>
 
 <section>
-<h2 style="text-align:center">Planos Mensais</h2>
+<h2 style="text-align:center">Como Funciona</h2>
+<p style="text-align:center;max-width:850px;margin:auto">
+Após a assinatura iniciamos a estruturação estratégica da sua empresa.
+Criamos grupos de clientes ativos, campanhas semanais e estratégias de fidelização.
+O objetivo é gerar movimento constante e crescimento previsível.
+</p>
+</section>
+
+<section>
+<h2 style="text-align:center">Planos</h2>
 <div class="grid">
+
+<div class="card">
+<h3>Plano Anúncio Básico</h3>
+<h2 style="color:#22c55e">R$ 20 / mês</h2>
+<p>✔ Criação de anúncio simples<br>✔ Direcionamento para WhatsApp<br>✔ Ideal para iniciantes</p>
+<br>
+<button class="btn" onclick="abrirCheckout('Plano Anúncio Básico','20')">Assinar</button>
+</div>
 
 <div class="card">
 <h3>Plano Essencial</h3>
 <h2 style="color:#22c55e">R$ 297 / mês</h2>
-<p>
-✔ Grupo estratégico<br>
-✔ 1 campanha semanal<br>
-✔ Organização digital
-</p>
+<p>✔ Grupo estratégico<br>✔ Campanha semanal<br>✔ Organização digital</p>
 <br>
-<button class="btn" onclick="abrirCheckout('Plano Essencial','297')">
-Assinar Plano
-</button>
-</div>
-
-<div class="card">
-<h3>Plano Profissional</h3>
-<h2 style="color:#22c55e">R$ 497 / mês</h2>
-<p>
-✔ Estratégia de fidelização<br>
-✔ 2 campanhas semanais<br>
-✔ Planejamento mensal
-</p>
-<br>
-<button class="btn" onclick="abrirCheckout('Plano Profissional','497')">
-Assinar Plano
-</button>
+<button class="btn" onclick="abrirCheckout('Plano Essencial','297')">Assinar</button>
 </div>
 
 <div class="card vip">
-<h3>Plano Impulso VIP Elite 👑</h3>
+<h3>Plano VIP Elite 👑</h3>
 <h2 style="color:#22c55e">R$ 997 / mês</h2>
-<p>
-✔ Estrutura completa<br>
-✔ Página profissional<br>
-✔ Estratégia personalizada<br>
-✔ Domínio local
-</p>
+<p>✔ Estrutura completa<br>✔ Página profissional<br>✔ Estratégia personalizada<br>✔ Suporte prioritário</p>
 <br>
-<button class="btn" onclick="abrirCheckout('Plano VIP Elite','997')">
-Quero o VIP
-</button>
+<button class="btn" onclick="abrirCheckout('Plano VIP Elite','997')">Quero o VIP</button>
 </div>
 
+</div>
+</section>
+
+<section>
+<h2 style="text-align:center">Resultados de Clientes</h2>
+<div class="grid">
+<div class="testimonial">
+<p>“Em poucas semanas meu movimento aumentou e comecei a ter clientes recorrentes.”</p>
+<strong>- Carlos M.</strong>
+</div>
+<div class="testimonial">
+<p>“Organização e estratégia fizeram toda diferença no meu negócio.”</p>
+<strong>- Juliana R.</strong>
+</div>
+<div class="testimonial">
+<p>“Hoje minha empresa é referência no bairro.”</p>
+<strong>- Roberto S.</strong>
+</div>
 </div>
 </section>
 
@@ -185,15 +235,13 @@ Quero o VIP
 <h2 id="planoNome"></h2>
 <h3 style="color:#22c55e">R$ <span id="planoPreco"></span> / mês</h3>
 
-<input class="input" placeholder="Seu nome">
-<input class="input" placeholder="Seu WhatsApp">
-
 <h3>Pagamento via PIX</h3>
 
 <div class="pix-box" id="pixKey">
 d8bf7a05-2cbe-4355-a055-79e77ac43b36
 </div>
 
+<br>
 <button class="btn" onclick="copiarPix()">Copiar Chave PIX</button>
 
 <div class="success" id="copiadoMsg">
@@ -201,18 +249,21 @@ d8bf7a05-2cbe-4355-a055-79e77ac43b36
 </div>
 
 <br><br>
-
-<p style="font-size:14px;color:#94a3b8">
-Após o pagamento, envie o comprovante para ativação do plano.
-</p>
+<a href="https://wa.me/5518991599851" class="btn btn-zap">
+Enviar comprovante no WhatsApp
+</a>
 
 </div>
 </div>
 
 <div class="footer">
-<p>Dúvidas?</p>
-<p style="color:#22c55e;font-weight:600">
-WhatsApp: (18) 99159-9851
+<h3>Dúvidas?</h3>
+<a href="https://wa.me/5518991599851" class="btn btn-zap">
+Falar no WhatsApp
+</a>
+<br><br>
+<p style="font-size:14px;color:#64748b">
+© 2026 Grupo Impulso Local — Todos os direitos reservados
 </p>
 </div>
 
@@ -235,6 +286,17 @@ setTimeout(()=>{
 document.getElementById("copiadoMsg").style.display="none";
 },2000);
 }
+
+// Animação ao rolar
+const cards=document.querySelectorAll(".card");
+window.addEventListener("scroll",()=>{
+cards.forEach(card=>{
+const top=card.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+card.classList.add("show");
+}
+});
+});
 </script>
 
 </body>
